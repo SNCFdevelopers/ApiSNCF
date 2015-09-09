@@ -10,7 +10,7 @@ Navitia is an Open Source software developed by Canal TP. (www.canaltp.fr)
 
 The SNCF API handles:
 
-* journeys from and to "station" or "administrative region"
+* journeys from and to "station" or an "administrative region"
 * next departures or arrivals
 * route schedules
 * stop schedules
@@ -22,18 +22,16 @@ Read our lexicon : https://github.com/OpenTransport/vocabulary/blob/master/vocab
 
 Authentication
 ================
-
-You must authenticate to use **SNCF API**. When you register we give you an authentication key to the API.
-
-
-You must use the `Basic HTTP authentication`_, where the username is the key, and without password.
-
-Username : copy / paste your key
-
-Password : leave the field blank
+Authentication is required to use the **SNCF API**--when you register we will give you an authentication key that must accompany each API call you make.
 
 
-.. _Basic HTTP authentication: http://tools.ietf.org/html/rfc2617#section-2
+The **SNCF API** uses Basic HTTP authentication for authentication, where the username is the key, and password remains empty.
+
+* Username : copy / paste your key
+* Password : leave the field blank
+
+
+For more information on Basic HTTP authentication please visit: http://tools.ietf.org/html/rfc2617#section-2
 
 Endpoint
 ********
