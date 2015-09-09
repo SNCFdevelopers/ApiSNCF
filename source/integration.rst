@@ -37,18 +37,18 @@ Base URL
 
 The base URL for the SNCF API is: https://api.sncf.com/v1/coverage/sncf
 
-Some easy examples
+Some Quick Examples
 ******************
 
-* Transport modes available in the service
+* Transport modes available
 	* https://api.sncf.com/v1/coverage/sncf/commercial_modes
-* Which services are available on this coverage? take a look at the links under this URL
+* Srvices  available within this coverage
 	* https://api.sncf.com/v1/coverage/sncf
-* Networks available?
+* Networks available
 	* https://api.sncf.com/v1/coverage/sncf/networks
-* SNCF network lines?
+* SNCF network lines
 	* https://api.sncf.com/v1/coverage/sncf/networks/network:OCE:SN/lines
-* Too many lines, let's use physical mode filtering
+* Physical mode filtering to receive fewer lines
 	* physical modes managed by SNCF
 	* https://api.sncf.com/v1/coverage/sncf/networks/network:OCE:SN/physical_modes
 	* Train lines
