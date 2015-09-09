@@ -596,8 +596,8 @@ tags                array of string     List of tags on the journey. The tags ad
 Route Schedules
 ***************
 
-This api gives you access to schedules of routes.
-The response is made of an array of route_schedule, and another one of `note`_.
+This endpoint gives you access to schedules of routes, with a response made of an array of `route_schedule`_, and another one of `note`_.
+
 You can access it via that kind of url: `<https://api.sncf.com/v1/{a_path_to_a_resource}/route_schedules>`_
 
 Parameters
@@ -626,7 +626,7 @@ Objects
 ===================== =========================== ==============================================
 Field                 Type                        Description
 ===================== =========================== ==============================================
-display_informations  `display_informations`_     Usefull information about the route to display
+display_informations  `display_informations`_     Information about the route to display
 Table                 table_                      The schedule table
 ===================== =========================== ==============================================
 
@@ -637,7 +637,7 @@ Table                 table_                      The schedule table
 ======= ================= ====================================
 Field   Type              Description
 ======= ================= ====================================
-Headers Array of header_  Informations about vehicle journeys
+Headers Array of header_  Informations about journeys
 Rows    Array of row_     A row of the schedule
 ======= ================= ====================================
 
@@ -650,7 +650,7 @@ Rows    Array of row_     A row of the schedule
 +==========================+=============================+===================================+
 | additionnal_informations | Array of String             | Other information: TODO enum      |
 +--------------------------+-----------------------------+-----------------------------------+
-| display_informations     | `display_informations`_     | Usefull information about the     |
+| display_informations     | `display_informations`_     | Information about the     |
 |                          |                             | the vehicle journey to display    |
 +--------------------------+-----------------------------+-----------------------------------+
 | links                    | Array of link_              | Links to line_, vehicle_journey,  |
