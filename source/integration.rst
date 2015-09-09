@@ -129,7 +129,7 @@ The SNCF API uses `HATEOAS <http://en.wikipedia.org/wiki/HATEOAS>`_ introduced b
 Paging
 ======
 
-All responses contain a paging object
+All SNCF API responses contain a paging object:
 
 =============== ==== =======================================
 Key             Type Description
@@ -140,7 +140,7 @@ start_page      int  The page number
 total_result    int  Total number of items for this request
 =============== ==== =======================================
 
-You can navigate through a request with 2 parameters
+You can navigate through a response using two parameters:
 
 =============== ==== =======================================
 Parameter       Type Description
