@@ -5,12 +5,11 @@ SNCF API documentation
 Overview
 ========
 
-This document describes how to use the SNCF API based on navitia via the v1 interface, and the returned resources.
-Navitia is an Open Source software developed by Canal TP. (www.canaltp.fr)
+This the API documentation for SNCF, France's national state-owned railway company and manages the rail traffic in France. Version 1 (v1) of the SNCF APIs is based on Navitia, an open source software developed by Canal TP. (www.canaltp.fr).
 
-The SNCF API handles:
+The SNCF API provides access to:
 
-* journeys from and to "station" or "administrative region"
+* journeys from and to "station" or an "administrative region"
 * next departures or arrivals
 * route schedules
 * stop schedules
@@ -22,36 +21,34 @@ Read our lexicon : https://github.com/OpenTransport/vocabulary/blob/master/vocab
 
 Authentication
 ================
-
-You must authenticate to use **SNCF API**. When you register we give you an authentication key to the API.
-
-
-You must use the `Basic HTTP authentication`_, where the username is the key, and without password.
-
-Username : copy / paste your key
-
-Password : leave the field blank
+Authentication is required to use the **SNCF API**--when you register we will give you an authentication key that must accompany each API call you make.
 
 
-.. _Basic HTTP authentication: http://tools.ietf.org/html/rfc2617#section-2
+The **SNCF API** uses Basic HTTP authentication for authentication, where the username is the key, and password remains empty.
 
-Endpoint
+* Username : copy / paste your key
+* Password : leave the field blank
+
+
+For more information on Basic HTTP authentication please visit: http://tools.ietf.org/html/rfc2617#section-2
+
+Base URL
 ********
 
-The only endpoint of this version of the api is : https://api.sncf.com/v1/coverage/sncf
+The base URL for the SNCF API is: https://api.sncf.com/v1/coverage/sncf
 
-Some easy examples
+Some Quick Examples
 ******************
 
-* Transport modes available in the service
+* Transport modes available
 	* https://api.sncf.com/v1/coverage/sncf/commercial_modes
-* Which services are available on this coverage? take a look at the links under this URL
+* Srvices  available within this coverage
 	* https://api.sncf.com/v1/coverage/sncf
-* Networks available?
+* Networks available
 	* https://api.sncf.com/v1/coverage/sncf/networks
-* SNCF network lines?
+* SNCF network lines
 	* https://api.sncf.com/v1/coverage/sncf/networks/network:OCE:SN/lines
-* Too many lines, let's use physical mode filtering
+* Physical mode filtering to receive fewer lines
 	* physical modes managed by SNCF
 	* https://api.sncf.com/v1/coverage/sncf/networks/network:OCE:SN/physical_modes
 	* Train lines
@@ -60,7 +57,7 @@ Some easy examples
 Resources
 *********
 
-All the resources return a response containing a links object, a paging object, and the requested object.
+All the resources return a response containing a links object, a paging object, and the requested object, following hypermeida principles.
 
 * **Coverage** :
 
@@ -78,7 +75,7 @@ All the resources return a response containing a links object, a paging object, 
 | ``GET`` /coverage/*region_id*/*collection_name*/*object_id*   | Information about a specific region |
 +---------------------------------------------------------------+-------------------------------------+
 
-* **Journeys** : Compute journeys
+* **Journeys** : Return journeys
 
 +---------------------------------------------------------------+-------------------------------------+
 | ``GET`` /coverage/*resource_path*/journeys                    | List of journeys                    |
@@ -86,37 +83,37 @@ All the resources return a response containing a links object, a paging object, 
 | ``GET`` /journeys                                             | List of journeys                    |
 +---------------------------------------------------------------+-------------------------------------+
 
-* **Route Schedules** : Compute route schedules for a given resource
+* **Route Schedules** : Return route schedules for a given resource
 
 +---------------------------------------------------------------+-------------------------------------+
 | ``GET`` /coverage/*resource_path*/route_schedules             | List of the route schedules         |
 +---------------------------------------------------------------+-------------------------------------+
 
-* **Stop Schedules** : Compute stop schedules for a given resource
+* **Stop Schedules** : Return stop schedules for a given resource
 
 +---------------------------------------------------------------+-------------------------------------+
 | ``GET`` /coverage/*resource_path*/stop_schedules              | List of the stop schedules          |
 +---------------------------------------------------------------+-------------------------------------+
 
-* **Departures** : List of the next departures for a given resource
+* **Departures** : Return next departures for a given resource
 
 +---------------------------------------------------------------+-------------------------------------+
 | ``GET`` /coverage/*resource_path*/departures                  | List of the departures              |
 +---------------------------------------------------------------+-------------------------------------+
 
-* **Arrivals** : List of the next departures for a given resource
+* **Arrivals** : Return the next departures for a given resource
 
 +---------------------------------------------------------------+-------------------------------------+
 | ``GET`` /coverage/*resource_path*/arrivals                    | List of the arrivals                |
 +---------------------------------------------------------------+-------------------------------------+
 
-* **Places/Autocomplete** : Search in the datas
+* **Places/Autocomplete** : Search places
 
 +---------------------------------------------------------------+-------------------------------------+
 | ``GET`` /coverage/places                                      | List of objects                     |
 +---------------------------------------------------------------+-------------------------------------+
 
-* **Places nearby** : List of objects near an object or a coord
+* **Places nearby** : Return ist of objects near an object or using longitude and latitude
 
 +---------------------------------------------------------------+-------------------------------------+
 | ``GET`` /coverage/*resource_path*/places_nearby               | List of objects near the resource   |
@@ -126,16 +123,13 @@ All the resources return a response containing a links object, a paging object, 
 
 Interface
 =========
-We aim to implement `HATEOAS <http://en.wikipedia.org/wiki/HATEOAS>`_ concept with Navitia.
-
-Each response contains a linkable object and lots of links.
-Links allow you to know all accessible uris and services for a given point.
+The SNCF API uses `HATEOAS <http://en.wikipedia.org/wiki/HATEOAS>`_ introduced by Navitia, providing linkable objects, allowing you to know all accessible URIs and available services for any given endpoint.
 
 .. _paging:
 Paging
 ======
 
-All responses contain a paging object
+All SNCF API responses contain a paging object:
 
 =============== ==== =======================================
 Key             Type Description
@@ -146,7 +140,7 @@ start_page      int  The page number
 total_result    int  Total number of items for this request
 =============== ==== =======================================
 
-You can navigate through a request with 2 parameters
+You can navigate through a response using two parameters:
 
 =============== ==== =======================================
 Parameter       Type Description
@@ -157,11 +151,11 @@ count           int  Number of items per page
 
 
 
-Templated url
+Templated URL
 *************
 
 Under some link sections, you will find a "templated" property. If "templated" is true,
-then you will have to format the link with one id.
+then you will have to format the link with a line id.
 
 For example, in response of https://api.sncf.com/v1/coverage/sncf/lines
 you will find a *links* section:
@@ -199,7 +193,7 @@ where you can find the details of your object ( *"id": "edc46f3a-ad3d-11e4-a5e1-
 Errors
 ======
 
-When there's an error you'll receive a response with a error object containing an id
+When there's an error you'll receive a response with a error object containing a unique error id
 
 Example
 *******
@@ -246,13 +240,13 @@ Code 50x
 
 Ouch. Technical issue :/
 
-Apis
+APIs
 ====
 
-Public transportation objects
+Public Transportation Bbjects
 ******************************
 
-You can explore the public transportation objects easily with these apis. You just need to add at the end of your url a collection name to see all the objects of a particular collection. To see an object add the id of this object at the end of the collection's url. The only arguments are the ones of `paging`_.
+You can explore the public transportation objects easily with these APIs. You just need to add at the end of your url a collection name to see all the objects within a particular collection. To see an object add the id of this object at the end of the collection's url. The only arguments for this endpoint the standard arguements used for `paging`_.
 
 Collections
 ###########
@@ -308,8 +302,7 @@ Other examples
 Places
 ******
 
-This api search in public transport objects via their names.
-It returns, in addition of classic objects, a collection of `place`_.
+This endpoint allows you to search in public transport objects using their names, returning a `place`_ collection.
 
 
 +------------------------------------------+
@@ -329,7 +322,7 @@ Parameters
 | nop     | type\[\]      | array of string | Type of objects you want to query      | \[``stop_area``, ``stop_point``,     |
 |         |               |                 |                                        | ``administrative_region``\]          |
 +---------+---------------+-----------------+----------------------------------------+--------------------------------------+
-| nop     | admin_uri\[\] | array of string | If filled, will restrained the search  |                                      |
+| nop     | admin_uri\[\] | array of string | If filled, it will be restrained the search  |                                      |
 |         |               |                 | within the given admin uris            |                                      |
 +---------+---------------+-----------------+----------------------------------------+--------------------------------------+
 
@@ -368,8 +361,7 @@ Response example for : https://api.sncf.com/v1/coverage/sncf/places?q=gare
 Places Nearby
 *************
 
-This api search for public transport object near another object, or near coordinates.
-It returns, in addition of classic objects, a collection of `place`_.
+This endpoint allows you to search in public transport objects that are near another object, or nearby coordinates, returning a `place`_ collection.
 
 +------------------------------------------+
 | *Warning*                                |
@@ -388,10 +380,10 @@ Parameters
 | nop     | type\[\]      | array of string | Type of objects you want to query        | \[``stop_area``, ``stop_point``,     |
 |         |               |                 |                                          | ``poi``, ``administrative_region``\] |
 +---------+---------------+-----------------+------------------------------------------+--------------------------------------+
-| nop     | admin_uri\[\] | array of string | If filled, will restrained the search    | ""                                   |
+| nop     | admin_uri\[\] | array of string | If filled, will filter the search    | ""                                   |
 |         |               |                 | within the given admin uris              |                                      |
 +---------+---------------+-----------------+------------------------------------------+--------------------------------------+
-| nop     | filter        | string          | Use to restrain returned objects.        |                                      |
+| nop     | filter        | string          | Use to filter returned objects.        |                                      |
 |         |               |                 | for example: places_type.id=theater      |                                      |
 +---------+---------------+-----------------+------------------------------------------+--------------------------------------+
 
@@ -445,10 +437,7 @@ https://api.sncf.com/v1/coverage/sncf/stop_areas/stop_area:OCE:SA:87271007/place
 Journeys
 ********
 
-This api commutes journeys.
-
-It will retrieve the next journeys from
-the selected public transport object.
+This endpoint allows you to retrieve the next journeys from the selected public transport object, returning a `journey`_ collection.
 
 To access the 'journey' api endpoint: `<https://api.sncf.com/v1/journeys?from={resource_id_1}&to={resource_id_2}&datetime={datetime}>`_ .
 
@@ -489,12 +478,12 @@ Parameters
 | nop      | forbidden_uris[]      | id        | If you want to avoid lines, modes,  networks, etc.|         |
 +----------+-----------------------+-----------+-------------------------------------------+-----------------+
 | nop      | min_nb_journeys       | int       | Minimum number of different suggested     |                 |
-|          |                       |           | trips                                     |                 |
+|          |                       |           | journeys                                     |                 |
 |          |                       |           |                                           |                 |
 |          |                       |           | More in `multiple_journeys`_              |                 |
 +----------+-----------------------+-----------+-------------------------------------------+-----------------+
 | nop      | max_nb_journeys       | int       | Maximum number of different suggested     |                 |
-|          |                       |           | trips                                     |                 |
+|          |                       |           | journeys                                     |                 |
 |          |                       |           |                                           |                 |
 |          |                       |           | More in `multiple_journeys`_              |                 |
 +----------+-----------------------+-----------+-------------------------------------------+-----------------+
@@ -607,8 +596,8 @@ tags                array of string     List of tags on the journey. The tags ad
 Route Schedules
 ***************
 
-This api gives you access to schedules of routes.
-The response is made of an array of route_schedule, and another one of `note`_.
+This endpoint gives you access to schedules of routes, with a response made of an array of `route_schedule`_, and another one of `note`_.
+
 You can access it via that kind of url: `<https://api.sncf.com/v1/{a_path_to_a_resource}/route_schedules>`_
 
 Parameters
@@ -637,7 +626,7 @@ Objects
 ===================== =========================== ==============================================
 Field                 Type                        Description
 ===================== =========================== ==============================================
-display_informations  `display_informations`_     Usefull information about the route to display
+display_informations  `display_informations`_     Information about the route to display
 Table                 table_                      The schedule table
 ===================== =========================== ==============================================
 
@@ -648,7 +637,7 @@ Table                 table_                      The schedule table
 ======= ================= ====================================
 Field   Type              Description
 ======= ================= ====================================
-Headers Array of header_  Informations about vehicle journeys
+Headers Array of header_  Informations about journeys
 Rows    Array of row_     A row of the schedule
 ======= ================= ====================================
 
@@ -661,7 +650,7 @@ Rows    Array of row_     A row of the schedule
 +==========================+=============================+===================================+
 | additionnal_informations | Array of String             | Other information: TODO enum      |
 +--------------------------+-----------------------------+-----------------------------------+
-| display_informations     | `display_informations`_     | Usefull information about the     |
+| display_informations     | `display_informations`_     | Information about the     |
 |                          |                             | the vehicle journey to display    |
 +--------------------------+-----------------------------+-----------------------------------+
 | links                    | Array of link_              | Links to line_, vehicle_journey,  |
@@ -686,8 +675,8 @@ Rows    Array of row_     A row of the schedule
 Stop Schedules
 **************
 
-This api gives you access to schedules of stops.
-The response is made of an array of stop_schedule, and another one of `note`_.
+This endpoint gives you access to a schedule of stops, with a response made of an array of `stop_schedule`_, and another one of `note`_.
+
 You can access it via that kind of url: `<https://api.sncf.com/v1/{a_path_to_a_resource}/stop_schedules>`_
 
 Parameters
@@ -712,7 +701,7 @@ Objects
 ===================== =============================================== ==============================================
 Field                 Type                                            Description
 ===================== =============================================== ==============================================
-display_informations  display_informations_                           Usefull information about the route to display
+display_informations  display_informations_                           Information about the route to display
 route                 route_                                          The route of the schedule
 date_times            Array of `date_time <date_time_object>`_        When does a bus stops at the stop point
 stop_point            stop_point_                                     The stop point of the schedule
@@ -721,8 +710,7 @@ stop_point            stop_point_                                     The stop p
 Departures
 **********
 
-This api retrieves a list of departures from a datetime of a selected object.
-Departures are ordered chronologically in ascending order.
+This endpoint retrieves a list of departures, from a specific datetime of a selected object, returning a `departure`_ collection.
 
 Parameters
 ##########
@@ -747,14 +735,14 @@ Objects
 Field                 Type                      Description
 ===================== ========================= ========================================
 route                 route_                    The route of the schedule
-stop_date_time        Array of stop_date_time_  When does a bus stops at the stop point
+stop_date_time        Array of stop_date_time_  When does a bus stop at the stop point
 stop_point            stop_point_               The stop point of the schedule
 ===================== ========================= ========================================
 
 Arrivals
 ********
-This api retrieves a list of arrivals from a datetime of a selected object.
-Arrivals are ordered chronologically in ascending order.
+
+This endpoint retrieves a list of arrivals, from a specific datetime of a selected object, returning a `arrival`_ collection.
 
 Parameters
 ##########
@@ -832,8 +820,8 @@ commercial_mode `commercial_mode`_     Commercial mode of the line
 +-----------------------------------------------------------------------------------------------------------+
 | *Note*                                                                                                    |
 |                                                                                                           |
-| The fields "Code" and "Color" in this API are not available.                                              |
-| The lines you will get with API do not correspond to commercial lines.                                    |
+| The fields "Code" and "Color" in this endpoint are not available.                                              |
+| The lines you will get with endpoint do not correspond to commercial lines.                                    |
 +-----------------------------------------------------------------------------------------------------------+
 
 .. _route:
@@ -1096,7 +1084,7 @@ Those journeys have the ``next`` (or ``previous``) value in their tags.
 Journey qualification process
 #############################
 
-Since Navitia can return several journeys, it tags them to help the user choose the best one for his needs.
+Since Navitia can return several journeys, it tags them to help the user choose the best one that matches their needs.
 
 The different journey types are:
 
@@ -1126,7 +1114,7 @@ Example : a re-user has made 3000 calls in 12 hours. The service will freeze for
 
 Connection between Paris’ train stations
 ========================================
-The connection between train stations within Paris are based on approximative journey durations.
+The connection between train stations within Paris are based on approximated journey durations.
 See the table below:
 
 +-------------------+--------------+--------------------+-------------------+-------------------+---------------+---------------+---------------+
