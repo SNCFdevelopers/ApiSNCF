@@ -32,10 +32,10 @@ The **SNCF API** uses Basic HTTP authentication for authentication, where the us
 
 For more information on Basic HTTP authentication please visit: http://tools.ietf.org/html/rfc2617#section-2
 
-Endpoint
+Base URL
 ********
 
-The only endpoint of this version of the api is : https://api.sncf.com/v1/coverage/sncf
+The base URL for the SNCF API is: https://api.sncf.com/v1/coverage/sncf
 
 Some easy examples
 ******************
