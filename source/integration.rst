@@ -123,10 +123,7 @@ All the resources return a response containing a links object, a paging object, 
 
 Interface
 =========
-We aim to implement `HATEOAS <http://en.wikipedia.org/wiki/HATEOAS>`_ concept with Navitia.
-
-Each response contains a linkable object and lots of links.
-Links allow you to know all accessible uris and services for a given point.
+The SNCF API uses `HATEOAS <http://en.wikipedia.org/wiki/HATEOAS>`_ introduced by Navitia, providing linkable objects, allowing you to know all accessible URIs and available services for any given endpoint.
 
 .. _paging:
 Paging
