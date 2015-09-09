@@ -675,7 +675,7 @@ Rows    Array of row_     A row of the schedule
 Stop Schedules
 **************
 
-This endpoint gives you access to schedules of stop, with a response made of an array of `stop_schedule`_, and another one of `note`_.
+This endpoint gives you access to a schedule of stops, with a response made of an array of `stop_schedule`_, and another one of `note`_.
 
 You can access it via that kind of url: `<https://api.sncf.com/v1/{a_path_to_a_resource}/stop_schedules>`_
 
@@ -710,8 +710,7 @@ stop_point            stop_point_                                     The stop p
 Departures
 **********
 
-This api retrieves a list of departures from a datetime of a selected object.
-Departures are ordered chronologically in ascending order.
+This endpoint retrieves a list of departures, from a specific datetime of a selected objects, returning a `departure`_ collection.
 
 Parameters
 ##########
@@ -736,7 +735,7 @@ Objects
 Field                 Type                      Description
 ===================== ========================= ========================================
 route                 route_                    The route of the schedule
-stop_date_time        Array of stop_date_time_  When does a bus stops at the stop point
+stop_date_time        Array of stop_date_time_  When does a bus stop at the stop point
 stop_point            stop_point_               The stop point of the schedule
 ===================== ========================= ========================================
 
