@@ -193,7 +193,7 @@ where you can find the details of your object ( *"id": "edc46f3a-ad3d-11e4-a5e1-
 Errors
 ======
 
-When there's an error you'll receive a response with a error object containing an id
+When there's an error you'll receive a response with a error object containing a unique error id
 
 Example
 *******
