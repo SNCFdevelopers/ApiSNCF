@@ -437,10 +437,7 @@ https://api.sncf.com/v1/coverage/sncf/stop_areas/stop_area:OCE:SA:87271007/place
 Journeys
 ********
 
-This api commutes journeys.
-
-It will retrieve the next journeys from
-the selected public transport object.
+This endpoint allows you to retrieve the next journeys from the selected public transport object, returning a `journey`_ collection.
 
 To access the 'journey' api endpoint: `<https://api.sncf.com/v1/journeys?from={resource_id_1}&to={resource_id_2}&datetime={datetime}>`_ .
 
@@ -481,12 +478,12 @@ Parameters
 | nop      | forbidden_uris[]      | id        | If you want to avoid lines, modes,  networks, etc.|         |
 +----------+-----------------------+-----------+-------------------------------------------+-----------------+
 | nop      | min_nb_journeys       | int       | Minimum number of different suggested     |                 |
-|          |                       |           | trips                                     |                 |
+|          |                       |           | journeys                                     |                 |
 |          |                       |           |                                           |                 |
 |          |                       |           | More in `multiple_journeys`_              |                 |
 +----------+-----------------------+-----------+-------------------------------------------+-----------------+
 | nop      | max_nb_journeys       | int       | Maximum number of different suggested     |                 |
-|          |                       |           | trips                                     |                 |
+|          |                       |           | journeys                                     |                 |
 |          |                       |           |                                           |                 |
 |          |                       |           | More in `multiple_journeys`_              |                 |
 +----------+-----------------------+-----------+-------------------------------------------+-----------------+
