@@ -302,8 +302,7 @@ Other examples
 Places
 ******
 
-This api search in public transport objects via their names.
-It returns, in addition of classic objects, a collection of `place`_.
+This endpoint allows you to search in public transport objects using their names, returning a `place`_ collection.
 
 
 +------------------------------------------+
@@ -323,7 +322,7 @@ Parameters
 | nop     | type\[\]      | array of string | Type of objects you want to query      | \[``stop_area``, ``stop_point``,     |
 |         |               |                 |                                        | ``administrative_region``\]          |
 +---------+---------------+-----------------+----------------------------------------+--------------------------------------+
-| nop     | admin_uri\[\] | array of string | If filled, will restrained the search  |                                      |
+| nop     | admin_uri\[\] | array of string | If filled, it will be restrained the search  |                                      |
 |         |               |                 | within the given admin uris            |                                      |
 +---------+---------------+-----------------+----------------------------------------+--------------------------------------+
 
