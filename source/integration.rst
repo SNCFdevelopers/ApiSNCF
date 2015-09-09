@@ -57,7 +57,7 @@ Some Quick Examples
 Resources
 *********
 
-All the resources return a response containing a links object, a paging object, and the requested object.
+All the resources return a response containing a links object, a paging object, and the requested object, following hypermeida principles.
 
 * **Coverage** :
 
@@ -75,7 +75,7 @@ All the resources return a response containing a links object, a paging object, 
 | ``GET`` /coverage/*region_id*/*collection_name*/*object_id*   | Information about a specific region |
 +---------------------------------------------------------------+-------------------------------------+
 
-* **Journeys** : Compute journeys
+* **Journeys** : Return journeys
 
 +---------------------------------------------------------------+-------------------------------------+
 | ``GET`` /coverage/*resource_path*/journeys                    | List of journeys                    |
@@ -83,37 +83,37 @@ All the resources return a response containing a links object, a paging object, 
 | ``GET`` /journeys                                             | List of journeys                    |
 +---------------------------------------------------------------+-------------------------------------+
 
-* **Route Schedules** : Compute route schedules for a given resource
+* **Route Schedules** : Return route schedules for a given resource
 
 +---------------------------------------------------------------+-------------------------------------+
 | ``GET`` /coverage/*resource_path*/route_schedules             | List of the route schedules         |
 +---------------------------------------------------------------+-------------------------------------+
 
-* **Stop Schedules** : Compute stop schedules for a given resource
+* **Stop Schedules** : Return stop schedules for a given resource
 
 +---------------------------------------------------------------+-------------------------------------+
 | ``GET`` /coverage/*resource_path*/stop_schedules              | List of the stop schedules          |
 +---------------------------------------------------------------+-------------------------------------+
 
-* **Departures** : List of the next departures for a given resource
+* **Departures** : Return next departures for a given resource
 
 +---------------------------------------------------------------+-------------------------------------+
 | ``GET`` /coverage/*resource_path*/departures                  | List of the departures              |
 +---------------------------------------------------------------+-------------------------------------+
 
-* **Arrivals** : List of the next departures for a given resource
+* **Arrivals** : Return the next departures for a given resource
 
 +---------------------------------------------------------------+-------------------------------------+
 | ``GET`` /coverage/*resource_path*/arrivals                    | List of the arrivals                |
 +---------------------------------------------------------------+-------------------------------------+
 
-* **Places/Autocomplete** : Search in the datas
+* **Places/Autocomplete** : Search places
 
 +---------------------------------------------------------------+-------------------------------------+
 | ``GET`` /coverage/places                                      | List of objects                     |
 +---------------------------------------------------------------+-------------------------------------+
 
-* **Places nearby** : List of objects near an object or a coord
+* **Places nearby** : Return ist of objects near an object or using longitude and latitude
 
 +---------------------------------------------------------------+-------------------------------------+
 | ``GET`` /coverage/*resource_path*/places_nearby               | List of objects near the resource   |
