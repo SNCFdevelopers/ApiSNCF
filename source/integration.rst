@@ -675,8 +675,8 @@ Rows    Array of row_     A row of the schedule
 Stop Schedules
 **************
 
-This api gives you access to schedules of stops.
-The response is made of an array of stop_schedule, and another one of `note`_.
+This endpoint gives you access to schedules of stop, with a response made of an array of `stop_schedule`_, and another one of `note`_.
+
 You can access it via that kind of url: `<https://api.sncf.com/v1/{a_path_to_a_resource}/stop_schedules>`_
 
 Parameters
@@ -701,7 +701,7 @@ Objects
 ===================== =============================================== ==============================================
 Field                 Type                                            Description
 ===================== =============================================== ==============================================
-display_informations  display_informations_                           Usefull information about the route to display
+display_informations  display_informations_                           Information about the route to display
 route                 route_                                          The route of the schedule
 date_times            Array of `date_time <date_time_object>`_        When does a bus stops at the stop point
 stop_point            stop_point_                                     The stop point of the schedule
