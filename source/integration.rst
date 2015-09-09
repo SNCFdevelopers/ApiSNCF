@@ -361,8 +361,7 @@ Response example for : https://api.sncf.com/v1/coverage/sncf/places?q=gare
 Places Nearby
 *************
 
-This api search for public transport object near another object, or near coordinates.
-It returns, in addition of classic objects, a collection of `place`_.
+This endpoint allows you to search in public transport objects that are near another object, or nearby coordinates, returning a `place`_ collection.
 
 +------------------------------------------+
 | *Warning*                                |
@@ -381,10 +380,10 @@ Parameters
 | nop     | type\[\]      | array of string | Type of objects you want to query        | \[``stop_area``, ``stop_point``,     |
 |         |               |                 |                                          | ``poi``, ``administrative_region``\] |
 +---------+---------------+-----------------+------------------------------------------+--------------------------------------+
-| nop     | admin_uri\[\] | array of string | If filled, will restrained the search    | ""                                   |
+| nop     | admin_uri\[\] | array of string | If filled, will filter the search    | ""                                   |
 |         |               |                 | within the given admin uris              |                                      |
 +---------+---------------+-----------------+------------------------------------------+--------------------------------------+
-| nop     | filter        | string          | Use to restrain returned objects.        |                                      |
+| nop     | filter        | string          | Use to filter returned objects.        |                                      |
 |         |               |                 | for example: places_type.id=theater      |                                      |
 +---------+---------------+-----------------+------------------------------------------+--------------------------------------+
 
