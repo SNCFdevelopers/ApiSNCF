@@ -710,7 +710,7 @@ stop_point            stop_point_                                     The stop p
 Departures
 **********
 
-This endpoint retrieves a list of departures, from a specific datetime of a selected objects, returning a `departure`_ collection.
+This endpoint retrieves a list of departures, from a specific datetime of a selected object, returning a `departure`_ collection.
 
 Parameters
 ##########
@@ -741,8 +741,8 @@ stop_point            stop_point_               The stop point of the schedule
 
 Arrivals
 ********
-This api retrieves a list of arrivals from a datetime of a selected object.
-Arrivals are ordered chronologically in ascending order.
+
+This endpoint retrieves a list of arrivals, from a specific datetime of a selected object, returning a `arrival`_ collection.
 
 Parameters
 ##########
@@ -820,8 +820,8 @@ commercial_mode `commercial_mode`_     Commercial mode of the line
 +-----------------------------------------------------------------------------------------------------------+
 | *Note*                                                                                                    |
 |                                                                                                           |
-| The fields "Code" and "Color" in this API are not available.                                              |
-| The lines you will get with API do not correspond to commercial lines.                                    |
+| The fields "Code" and "Color" in this endpoint are not available.                                              |
+| The lines you will get with endpoint do not correspond to commercial lines.                                    |
 +-----------------------------------------------------------------------------------------------------------+
 
 .. _route:
@@ -1084,7 +1084,7 @@ Those journeys have the ``next`` (or ``previous``) value in their tags.
 Journey qualification process
 #############################
 
-Since Navitia can return several journeys, it tags them to help the user choose the best one for his needs.
+Since Navitia can return several journeys, it tags them to help the user choose the best one that matches their needs.
 
 The different journey types are:
 
@@ -1114,7 +1114,7 @@ Example : a re-user has made 3000 calls in 12 hours. The service will freeze for
 
 Connection between Paris’ train stations
 ========================================
-The connection between train stations within Paris are based on approximative journey durations.
+The connection between train stations within Paris are based on approximated journey durations.
 See the table below:
 
 +-------------------+--------------+--------------------+-------------------+-------------------+---------------+---------------+---------------+
