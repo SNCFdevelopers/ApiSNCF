@@ -240,13 +240,13 @@ Code 50x
 
 Ouch. Technical issue :/
 
-Apis
+APIs
 ====
 
-Public transportation objects
+Public Transportation Bbjects
 ******************************
 
-You can explore the public transportation objects easily with these apis. You just need to add at the end of your url a collection name to see all the objects of a particular collection. To see an object add the id of this object at the end of the collection's url. The only arguments are the ones of `paging`_.
+You can explore the public transportation objects easily with these APIs. You just need to add at the end of your url a collection name to see all the objects within a particular collection. To see an object add the id of this object at the end of the collection's url. The only arguments for this endpoint the standard arguements used for `paging`_.
 
 Collections
 ###########
