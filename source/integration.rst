@@ -151,11 +151,11 @@ count           int  Number of items per page
 
 
 
-Templated url
+Templated URL
 *************
 
 Under some link sections, you will find a "templated" property. If "templated" is true,
-then you will have to format the link with one id.
+then you will have to format the link with a line id.
 
 For example, in response of https://api.sncf.com/v1/coverage/sncf/lines
 you will find a *links* section:
