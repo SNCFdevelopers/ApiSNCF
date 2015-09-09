@@ -5,10 +5,9 @@ SNCF API documentation
 Overview
 ========
 
-This document describes how to use the SNCF API based on navitia via the v1 interface, and the returned resources.
-Navitia is an Open Source software developed by Canal TP. (www.canaltp.fr)
+This the API documentation for SNCF, France's national state-owned railway company and manages the rail traffic in France. Version 1 (v1) of the SNCF APIs is based on Navitia, an open source software developed by Canal TP. (www.canaltp.fr).
 
-The SNCF API handles:
+The SNCF API provides access to:
 
 * journeys from and to "station" or an "administrative region"
 * next departures or arrivals
